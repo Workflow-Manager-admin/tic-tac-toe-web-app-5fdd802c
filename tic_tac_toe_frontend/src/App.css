@@ -1,20 +1,20 @@
-/* Theme Colors */
 :root {
-  --color-primary: #1976d2;
-  --color-secondary: #424242;
-  --color-accent: #ff5252;
-  --color-bg: #f9fbfc;
-  --color-bg2: #fff;
-  --color-border: #dde6f2;
-  --color-text: #232b33;
-  --color-text-secondary: #6c757d;
-  --color-shadow: 0 4px 16px rgba(25, 118, 210, 0.06);
+  /* Red theme variables */
+  --color-primary: #c62828;         /* Strong red for main elements */
+  --color-secondary: #b71c1c;       /* Deep red for secondary items */
+  --color-accent: #ff1744;          /* Vivid accent, neon red-pink */
+  --color-bg: #fff5f5;              /* Lightest red-tint background */
+  --color-bg2: #fff0f0;             /* Slightly deeper light background */
+  --color-border: #ff8a80;          /* Muted pale red for borders */
+  --color-text: #8b0000;            /* Dark red for standard text */
+  --color-text-secondary: #d32f2f;  /* Mid red for subtler text */
+  --color-shadow: 0 4px 16px rgba(198, 40, 40, 0.09);
   --color-btn: var(--color-primary);
-  --color-btn-text: #fff;
-  --color-board-shadow: 0 2px 16px 0 rgba(25, 118, 210, 0.12);
+  --color-btn-text: #fff0f0;
+  --color-board-shadow: 0 2px 16px 0 rgba(198, 40, 40, 0.15);
 }
 
-/* overall app root */
+/* App Wrapper */
 .ttt-app-root {
   min-height: 100vh;
   background: var(--color-bg);
@@ -23,6 +23,7 @@
   justify-content: center;
 }
 
+/* Main Game Container */
 .ttt-game-container {
   background: var(--color-bg2);
   border-radius: 1rem;
@@ -36,6 +37,7 @@
   align-items: center;
 }
 
+/* Title */
 .ttt-title {
   font-size: 2.15rem;
   font-weight: 800;
@@ -44,6 +46,7 @@
   margin-bottom: 10px;
 }
 
+/* Status Line */
 .ttt-status {
   min-height: 32px;
   font-size: 1.12rem;
@@ -52,6 +55,7 @@
   margin-bottom: 8px;
 }
 
+/* Win and Draw Highlighting */
 .status-win,
 .notification-win {
   color: var(--color-accent);
@@ -63,25 +67,29 @@
   font-weight: 600;
 }
 
+/* Game Board Styles */
 .ttt-board {
   display: flex;
   flex-direction: column;
   margin: 20px 0;
   border-radius: 12px;
   box-shadow: var(--color-board-shadow);
-  background: #f9fbfc;
+  background: var(--color-bg);
   outline: 2px solid var(--color-primary);
   overflow: hidden;
   max-width: 330px;
 }
 
+/* Row */
 .ttt-row {
   display: flex;
 }
+
+/* Individual Squares */
 .square {
   width: 100px;
   height: 100px;
-  background: #fff;
+  background: #fff0f0;
   border: 1.7px solid var(--color-border);
   font-size: 2.95rem;
   font-weight: bold;
@@ -90,11 +98,11 @@
   outline: none;
   cursor: pointer;
   position: relative;
-  transition: background 0.17s, color 0.18s;
+  transition: background 0.17s, color 0.18s, border 0.16s;
 }
 .square:disabled {
   cursor: default;
-  background: #f6f8fc;
+  background: #ffe6e6;
   color: var(--color-border);
   opacity: 0.8;
 }
@@ -104,12 +112,14 @@
 .square.filled.player-O {
   color: var(--color-accent);
 }
+/* Highlight for winning squares */
 .square.highlight {
-  background: #e6f0fa;
+  background: #ffebee;
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 2px var(--color-accent) inset, 0 3px 10px 0 rgba(255,82,82,0.045);
+  box-shadow: 0 0 0 2px var(--color-accent) inset, 0 3px 10px 0 rgba(255,23,68,0.11);
 }
 
+/* Player icons */
 .player-icon {
   padding: 0 0.17em;
   font-weight: bold;
@@ -125,26 +135,26 @@
   font-weight: bold;
 }
 
-/* notifications */
+/* Notifications */
 .notification {
   margin-bottom: 7px;
   border-radius: 5px;
   padding: 10px 20px;
   font-size: 1.08rem;
-  background: rgba(25, 118, 210, 0.07);
+  background: rgba(198, 40, 40, 0.08);
   border: 1.1px solid var(--color-primary);
   font-weight: 600;
 }
 .notification-win {
-  background: rgba(255, 82, 82, 0.08);
+  background: rgba(255, 23, 68, 0.10);
   border: 1.2px solid var(--color-accent);
 }
 .notification-draw {
-  background: rgba(66, 66, 66, 0.07);
+  background: rgba(183, 28, 28, 0.12);
   border: 1.2px solid var(--color-secondary);
 }
 
-/* controls */
+/* Controls */
 .controls {
   margin: 20px 0 3px 0;
   display: flex;
@@ -162,17 +172,19 @@
   border-radius: 7px;
   padding: 10px 24px;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(25, 118, 210, 0.06);
-  transition: background 0.18s, box-shadow 0.2s;
+  box-shadow: 0 2px 6px rgba(198, 40, 40, 0.08);
+  transition: background 0.18s, box-shadow 0.2s, color 0.18s;
 }
 .btn-primary {
   background: var(--color-primary);
+  color: #fff; /* Override text for best contrast */
 }
 .btn:active {
-  background: #125099;
+  background: #8b0000;
+  color: #fff;
 }
 .btn:focus-visible {
-  outline: 2px solid var(--color-secondary);
+  outline: 2px solid var(--color-accent);
   outline-offset: 0px;
 }
 .btn[disabled] {
@@ -180,7 +192,7 @@
   cursor: default;
 }
 
-/* Footer */
+/* Footer Styles */
 .ttt-footer {
   display: flex;
   width: 100%;
@@ -230,6 +242,7 @@
   }
 }
 
+/* App background adjusts slightly for extra red effect on body */
 body {
-  background: #ff0000;
+  background: #ffebee;
 }
